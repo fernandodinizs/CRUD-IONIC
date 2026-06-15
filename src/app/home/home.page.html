@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Estoque
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/gerenciar-fruta">
+        Gerenciar
+      </ion-button>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Estoque</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    
+    <div *ngIf="erro" class="erro">{{ erro }}</div>
+    
+    <div class="table-container">
+      
+      <table id="main-list" *ngIf="frutas.length > 0">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+        </tr>
+        <tr *ngFor="let f of frutas">
+          <td>{{ f.id }}</td>
+          <td style="font-weight: bold;">{{ f.nome }}</td>
+          <td>{{ f.preco }}</td>
+          <td>{{ f.quantidade }}</td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div *ngIf="frutas.length === 0" class="vazio">
+      Nenhuma fruta cadastrada.
+    </div>
+  
+  </div>
+  
+</ion-content>

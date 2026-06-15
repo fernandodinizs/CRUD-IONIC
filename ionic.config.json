@@ -1,0 +1,7 @@
+{
+  "name": "Serviço e API",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

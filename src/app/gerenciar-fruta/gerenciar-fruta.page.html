@@ -1,0 +1,122 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>gerenciar-fruta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-button expand="block" (click)="abrirModalAdicionar()">
+    Adicionar
+  </ion-button>
+
+  <ion-list>
+
+    <ion-item *ngFor="let fruta of frutas">
+
+      <ion-label>
+        <h2>{{ fruta.nome }}</h2>
+        <p>
+          R$ {{ fruta.preco }}
+          <br>
+          Quantidade: {{ fruta.quantidade }}
+        </p>
+      </ion-label>
+
+      <ion-button class="botao-edit"
+        Type="ios"
+        color="warning"
+        (click)="editarFruta(fruta)">
+        Editar
+      </ion-button>
+
+      <ion-button class="botao-delete"
+        Type="ios"
+        color="danger"
+        (click)="excluirFruta(fruta.id)">
+        Excluir
+      </ion-button>
+
+    </ion-item>
+
+  </ion-list>
+
+
+
+
+<!-- -------------------------------------------------------------------------------- -->
+<!-- ------------------------ MODAL PARA ADICIONAR FRUTA ---------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+
+  <ion-modal [isOpen]="modalAdicionarAberto" (didDismiss)="fecharModalAdicionar()">
+    <ng-template>
+
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Adicionar Fruta</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="fecharModalAdicionar()">Cancelar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input label="Nome:" labelPlacement="fixed" [(ngModel)]="novaFruta.nome" required ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Preço:" type="number" labelPlacement="fixed" [(ngModel)]="novaFruta.preco" required ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Quantidade:" type="number" labelPlacement="fixed" [(ngModel)]="novaFruta.quantidade" required ></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" (click)="adicionarFruta()">Adicionar</ion-button>
+      </ion-content>
+
+    </ng-template>
+  </ion-modal>
+
+
+
+<!-- -------------------------------------------------------------------------------- -->
+<!-- ------------------------ MODAL PARA EDITAR FRUTA ---------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+
+  <ion-modal [isOpen]="modalAberto" (didDismiss)="fecharModal()">
+    <ng-template>
+
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Editar Fruta</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="fecharModal()">Cancelar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input label="Nome:" labelPlacement="fixed" [(ngModel)]="frutaEmEdicao.nome" required ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Preço:" type="number" labelPlacement="fixed" [(ngModel)]="frutaEmEdicao.preco" required ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Quantidade:" type="number" labelPlacement="fixed" [(ngModel)]="frutaEmEdicao.quantidade" required ></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" (click)="salvarEdicao()">Salvar</ion-button>
+      </ion-content>
+
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
