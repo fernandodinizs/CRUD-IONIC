@@ -1,7 +1,7 @@
 {
-  "name": "servico-e-api",
+  "name": "CRUDIONIC",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "Fernando Diniz da Silva Sousa",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
