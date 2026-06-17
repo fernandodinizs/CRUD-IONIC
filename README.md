@@ -135,8 +135,8 @@ Consolidar o aprendizado prático em desenvolvimento de aplicações CRUD com Io
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/fernandodinizs/CRUD-IONIC.git
+cd CRUD-IONIC
 ```
 
 ---
